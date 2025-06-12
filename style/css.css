@@ -1,0 +1,287 @@
+/* ================================
+   style/css.css
+   Design Star Wars Temático
+   Responsivo, sem px/flex/grid.
+   Usando .wrap para agrupar conteúdo.
+   ================================ */
+
+/* ---------- RESET BÁSICO ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* ---------- BODY, OVERLAY E FUNDO GERAL ---------- */
+  body {
+    font-family: Arial, sans-serif;
+    color: #f6f0f0;
+    background: #000000 url('../img/back.jpg') no-repeat center center / cover;
+    min-height: 100vh;
+    position: relative; /* para permitir overlay pseudo-elemento */
+  }
+  
+  /* Overlay escuro por cima do background, 
+     para não ofuscar o texto */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 19, 19, 0.715);
+    z-index: -1; /* Fica atrás do conteúdo principal */
+  }
+  
+  /* ---------- FUNDO TEMÁTICO POR PÁGINA (opcional) ---------- */
+  .home-page {
+    background: #000 url('../img/1.jpg') no-repeat center center / cover;
+  }
+  .movies-page {
+    background: #000 url('../img/2.jpg') no-repeat center center / cover;
+  }
+  .theforce-page {
+    background: #000 url('../img/4.jpg') no-repeat center center / cover;
+  }
+  /* etc. */
+  
+   /* 
+      .characters-page, .ships-page, .summary-page, etc.
+      Crie novas classes se desejar 
+   */
+  
+  /* ---------- WRAPPER PRINCIPAL ---------- */
+  .wrap {
+    /* centraliza e limita a largura */
+    width: 90vw;
+    max-width: 80rem;
+    margin: 0 auto;
+  
+    /* Define altura mínima de 100vh para ocupar tela inteira */
+    min-height: 100vh;
+    position: relative; /* necessário para posicionar footer internamente */
+  
+    /* Espaço no final para não sobrepor footer ao conteúdo (opcional) */
+    padding-bottom: 8vh; 
+    /* Ajuste se quiser mais ou menos espaço 
+       Ex: 10vh, 5em, etc. */
+  }
+  
+  /* ---------- CABEÇALHO, NAV, MAIN, FOOTER (dentro da .wrap) ---------- */
+  header,
+  nav,
+  main,
+  footer {
+    padding: 1.5em 0; /* espaçamento vertical */
+  }
+  
+  /* ---------- FOOTER ESTÁTICO / FIXO NO FUNDO DO WRAPPER ---------- */
+  footer {
+    position: absolute;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-top: 0.1em solid #ffe81f;
+    text-align: center;
+    padding: 1em 0;
+  }
+  footer p {
+    color: #ccc;
+    font-size: 0.9rem;
+  }
+  
+  /* ---------- TÍTULOS ---------- */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.2em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffe81f; /* Amarelo Star Wars */
+  }
+  h2 {
+    font-size: 1.6rem;
+    color: #ffe81f;
+    margin-bottom: 0.5em;
+  }
+  
+  /* ---------- PARÁGRAFOS ---------- */
+  p {
+    line-height: 1.5;
+    margin-bottom: 1.2em;
+  }
+  
+  /* ---------- LINKS ---------- */
+  a {
+    color: #ff66ff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #ff99ff;
+  }
+  
+  /* ---------- NAV (MENU) ---------- */
+  nav {
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 2em;
+    border-top: 0.1em solid #ffe81f;
+    border-bottom: 0.1em solid #ffe81f;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+  nav ul {
+    list-style: none;
+  }
+  nav li {
+    display: inline-block; /* sem flex/grid */
+    margin: 0 0.5em;
+  }
+  nav a {
+    background: rgba(50, 50, 50, 0.3);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
+  }
+  nav a:hover {
+    background: rgba(255, 232, 31, 0.2);
+  }
+  
+  /* ---------- MAIN (CONTEÚDO) ---------- */
+  main {
+    background-color: rgba(7, 7, 7, 0.414);
+    border-radius: 0.5em;
+    min-height: 40vh;
+    padding: 2em;
+  }
+  main ul {
+    list-style: disc;
+    margin-left: 2em;
+  }
+  main ul li {
+    margin: 0.5em 0;
+  }
+  
+  /* ---------- BOTÃO DE AÇÃO (CTA) ---------- */
+  .cta {
+    display: inline-block;
+    background: #ff00aa;
+    color: #fff;
+    padding: 0.6em 1em;
+    border-radius: 0.4em;
+    margin: 1em 0;
+    transition: background 0.3s ease;
+    font-weight: bold;
+  }
+  .cta:hover {
+    background: #ff66cc;
+  }
+  
+  /* ---------- BLOCO DE LOGIN (OPCIONAL) ---------- */
+  .login-area {
+    position: absolute;
+    top: 5vh;
+    right: 5vw;
+    background: rgba(0, 0, 0, 0.7);
+    border: 0.1em solid #ffe81f;
+    border-radius: 0.5em;
+    width: 25vw;
+    max-width: 20rem;
+    padding: 1em;
+  }
+  .login-area label {
+    display: block;
+    margin-top: 0.5em;
+  }
+  .login-area input {
+    width: 100%;
+    margin: 0.3em 0;
+    padding: 0.5em;
+    border: none;
+    border-radius: 0.2em;
+  }
+  .login-area button {
+    background: #ff0099;
+    color: #fff;
+    border: none;
+    border-radius: 0.3em;
+    padding: 0.6em 1em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .login-area button:hover {
+    background: #ff66cc;
+  }
+  
+  /* ---------- CAIXAS DE IMAGEM (FLUTUADAS) ---------- */
+  .img-box {
+    float: right;
+    width: 25vw;
+    max-width: 20rem;
+    border: 0.2em solid #ffe81f;
+    border-radius: 0.5em;
+    overflow: hidden;
+    margin: 0 0 1em 1.5em; 
+  }
+  .img-box img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Caso queira flutuar à esquerda em alguma página:
+  .float-left {
+    float: left;
+    margin: 0 1.5em 1em 0;
+    width: 25vw;
+    max-width: 20rem;
+  } */
+  
+  /* Se precisar limpar float:
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  } */
+  
+  /* ---------- ADMIN DASHBOARD PAGE ---------- */
+.admin-dashboard-page main {
+  background-color: rgba(50, 50, 50, 0.8); /* Fundo escuro semi-transparente */
+  border-radius: 0.5em; /* Bordas arredondadas */
+  padding: 2em; /* Espaçamento interno */
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+}
+
+.admin-dashboard-page main h2 {
+  color: #ffe81f; /* Amarelo Star Wars */
+  margin-bottom: 1.5em; /* Espaçamento abaixo do título */
+  text-align: center; /* Centralizar o texto */
+  font-size: 1.8rem; /* Tamanho da fonte */
+}
+
+.admin-dashboard-page main ul {
+  list-style: none; /* Remover marcadores da lista */
+  padding: 0; /* Remover preenchimento */
+  margin: 0; /* Remover margem */
+}
+
+.admin-dashboard-page main ul li {
+  margin-bottom: 1em; /* Espaçamento entre os itens da lista */
+}
+
+.admin-dashboard-page main ul li a {
+  display: block; /* Exibir como bloco para preencher a largura */
+  background-color: rgba(255, 232, 31, 0.9); /* Fundo amarelo com leve transparência */
+  color: #000; /* Texto preto */
+  padding: 1em 1.5em; /* Espaçamento interno */
+  border-radius: 0.4em; /* Bordas arredondadas */
+  text-decoration: none; /* Remover sublinhado */
+  font-weight: bold; /* Negrito */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+}
+
+.admin-dashboard-page main ul li a:hover {
+  background-color: #ffe81f; /* Fundo amarelo sólido no hover */
+  transform: scale(1.05); /* Aumentar ligeiramente no hover */
+}
